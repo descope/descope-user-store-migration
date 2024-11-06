@@ -42,15 +42,13 @@ def get_user_object(row):
         "email": user["email"],
         "display_name": user.get("displayName"),
         "role_names": user.get("roleNames"),
-        # "family_name": user.get("familyName"),
-        # "given_name": user.get("givenName"),
     }
 
+    # If you have a hashed password, you can use this instead of cleartext=user["password"]
+    # Example: hashed=UserPasswordDjango(hash=user["password"])
     if "password" in user and user["password"]:
         user_obj_args["password"] = UserPassword(
-            hashed=UserPasswordDjango(
-                hash=user["password"]
-            )
+            cleartext=user["password"]
         )
 
     return UserObj(**user_obj_args)
