@@ -42,6 +42,7 @@ def get_user_object(row):
         "email": user["email"],
         "display_name": user.get("displayName"),
         "role_names": user.get("roleNames"),
+        # "status": user.get("status"),  #You can set the status of a user to be enabled(active), disabled, invited(default)"
     }
 
     # If you have a hashed password, you can use this instead of cleartext=user["password"]
@@ -114,49 +115,3 @@ if __name__ == '__main__':
     process_csv('src/sample_exported_users.csv')
 
 
-
-
-
-
-
-
-
-
-
-
-# def create_user(userObj: UserObj) -> Dict[str, Any]:
-#     try:
-#         data = descope_client.mgmt.user.invite_batch([userObj], send_mail=False)
-#         if "errorCode" in data:
-#             print(data)
-#             return None
-#         user = userObj
-    
-#         if (user.get("roleNames")):
-#             descope_client.mgmt.user.add_roles(login_id=user["email"], role_names=user["roleNames"])
-#         final_user_obj = descope_client.mgmt.user.activate(user["email"])
-#         return final_user_obj["user"]
-#     except requests.RequestException as e:
-#         print(f"Error creating user: {e}")
-#         return None
-
-
-
-# def iteratively_update_users(users: List[UserObj], batchCount: int) -> Dict[str, Any]:
-#     try:
-#         print("Updating users...")
-#         count = 0
-#         for user in users:
-#             print("Updating user ", count, " of batch ", batchCount)
-#             data = descope_client.mgmt.user.activate(user.email)
-#             count += 1
-
-#         if "errorCode" in data:
-#             print(data)
-#             return None
-#         return data
-    
-        
-#     except requests.RequestException as e:
-#         print(f"Error creating user: {e}")
-#         return None
