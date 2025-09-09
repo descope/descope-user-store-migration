@@ -1,4 +1,4 @@
 descope==1.6.2
-requests==2.31.0
+requests==2.32.4
 python-dotenv==1.0.1
 urllib3>=2.5.0 # not directly required, pinned by Snyk to avoid a vulnerability
