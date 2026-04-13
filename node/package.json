@@ -12,7 +12,7 @@
   "license": "0BSD",
   "devDependencies": {
     "@types/node": "^20.11.12",
-    "typescript": "^5.3.3"
+    "typescript": "^6.0.0"
   },
   "dependencies": {
     "@descope/node-sdk": "^1.7.14",
